@@ -20,3 +20,8 @@
 - deleteBtn의 father을 찾음 (console.dir(_.target.parentNode))
 - **localTodo삭제
 - arr.filter(func) : arr의 모든 아이템을 통해 함수 실행, true인 아이템으로 새 arr 만든다.
+
+### background img
+- 랜덤으로 이미지 번호 생성 Math.floor math.random
+- image객체 만들고 객체의 src만들어줌
+- body.prepend(imgage)
