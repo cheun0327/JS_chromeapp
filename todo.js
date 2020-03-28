@@ -4,11 +4,23 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = 'toDos';
 
-const toDos = [];
+let toDos = [];
+
+function deleteToDo(event){
+    //console.log(event.target.parentNode); //we know who to delete
+    const btn = event.target;
+    const li = btn.parentNode;
+    toDoList.removeChild(li);
+    const cleanToDos = toDos.filter(function(toDo){
+        return toDo.id !== parseInt(li.id); //int와 string비교 불가
+    });
+    console.log(cleanToDos);
+    toDos = cleanToDos;
+    saveToDos();
+}
 
 function saveToDos(){
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
-
 }
 
 function paintToDo(text){
@@ -17,6 +29,7 @@ function paintToDo(text){
    const span = document.createElement("span");
    const newId = toDos.length + 1;
    delBtn.innerText = "❌";
+   delBtn.addEventListener("click", deleteToDo)
    span.innerText = text;
    li.appendChild(delBtn);
    li.appendChild(span); 
@@ -45,7 +58,6 @@ function loadToDos(){
         console.log(parsedToDos)
         //모든 parsedToDos의 내용에 대해 paintToDo실행
         parsedToDos.forEach(function(toDo){
-            console.log(toDo.text);
             paintToDo(toDo.text);
         });
     }

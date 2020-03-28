@@ -13,3 +13,10 @@
     - JSON.stringify(val) : js object를 string으로 바꾸는 기능
 - JSON.parse(val) : string으로 저장된 데이터를 js가 읽을 수 있게 변형
 - forEach
+
+### delete ToDo
+- html의 li 삭제
+- deletehandler만들기 : 클릭 이벤트로하면 어떤 버튼이 클릭되었는지 몰라.
+- deleteBtn의 father을 찾음 (console.dir(_.target.parentNode))
+- **localTodo삭제
+- arr.filter(func) : arr의 모든 아이템을 통해 함수 실행, true인 아이템으로 새 arr 만든다.
